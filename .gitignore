@@ -1,1 +1,19 @@
 ".venv/__pycache__/*.pkl*.csv*.ipynb_checkpoints/*.pyc*.log/plots//models//data/" 
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.env
+.venv/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Data & plots
+data/
+plots/
+*.csv
+
+# IDE
+.vscode/
+EOF
