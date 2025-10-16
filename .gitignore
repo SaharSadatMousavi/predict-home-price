@@ -11,7 +11,11 @@ __pycache__/
 
 # Data & plots
 data/
+<<<<<<< HEAD
 
+=======
+plots/
+>>>>>>> 0360cff (Enhanced EDA and Visualization &update gitignore)
 *.csv
 
 # IDE
