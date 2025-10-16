@@ -11,7 +11,7 @@ __pycache__/
 
 # Data & plots
 data/
-plots/
+
 *.csv
 
 # IDE
