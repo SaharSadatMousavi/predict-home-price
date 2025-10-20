@@ -4,13 +4,14 @@ from django.http import JsonResponse
 from rest_framework.decorators import api_view
 
 # مسیرها را با ساختار پروژه‌ات هماهنگ کن
-MODEL_PATH = '../../models/house_price_model.pkl'
-COLUMNS_PATH = '../../models/model_columns.pkl'
+MODEL_PATH = '../models/house_price_model.pkl'
+COLUMNS_PATH = '../models/model_columns.pkl'
 
 model = joblib.load(MODEL_PATH)
 model_columns = joblib.load(COLUMNS_PATH)
 
-@api_view(['POST'])
+
+@api_view(['GET', 'POST'])
 def predict(request):
     try:
         data = request.data
@@ -26,9 +27,10 @@ def predict(request):
             df = pd.get_dummies(df, columns=['Address'], drop_first=True)
 
         # مطابقت دادن ستون‌ها با ستون‌های آموزش:
-        for col in model_columns:
-            if col not in df.columns:
-                df[col] = 0
+        missing_cols = [col for col in model_columns if col not in df.columns]
+        if missing_cols:
+            df = pd.concat(
+                [df, pd.DataFrame(0, index=df.index, columns=missing_cols)], axis=1)
 
         # ترتیب درست:
         df = df[model_columns]
