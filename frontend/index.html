@@ -45,75 +45,6 @@
         <input type="number" class="form-control" id="rooms" required>
       </div>
 
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" id="parking">
-        <label class="form-check-label">پارکینگ دارد</label>
-      </div>
-
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" id="warehouse">
-        <label class="form-check-label">انباری دارد</label>
-      </div>
-
-      <div class="form-check mb-3">
-        <input class="form-check-input" type="checkbox" id="elevator">
-        <label class="form-check-label">آسانسور دارد</label>
-      </div>
-
-      <div class="mb-3">
-        <label class="form-label">منطقه</label>
-        <select class="form-select" id="address" required>
-          <option value="" selected disabled>انتخاب کنید...</option>
-          <option value="Abazar">آباذر</option>
-          <option value="Abbasabad">عباس‌آباد</option>
-          <option value="Absard">ابسرد</option>
-          <option value="Afsarieh">افسریه</option>
-          <option value="Ajudaniye">اجودانیه</option>
-          <option value="Ajoodaniye">اجودانیه</option>
-          <option value="Andisheh">اندیشه</option>
-          <option value="Ekbatan">اکباتان</option>
-          <option value="Enghelab">انقلاب</option>
-          <option value="Elahieh">الهیه</option>
-          <option value="Farmanieh">فرمانیه</option>
-          <option value="Gheitarieh">قیطریه</option>
-          <option value="Jordan">جردن</option>
-          <option value="Punak">پونک</option>
-          <option value="Saadat Abad">سعادت‌آباد</option>
-          <option value="Pasdaran">پاسداران</option>
-          <option value="Niavaran">نیاوران</option>
-          <option value="Vanak">ونک</option>
-          <option value="Zafar">ظفر</option>
-          <option value="Valiasr">ولیعصر</option>
-          <option value="Narmak">نارمک</option>
-          <option value="Shahrak Gharb">شهرک غرب</option>
-          <option value="Ray">شهر ری</option>
-          <option value="Islamshahr">اسلامشهر</option>
-          <option value="Parand">پرند</option>
-          <option value="Robat Karim">رباط کریم</option>
-          <option value="Hakimiyeh">حکیمیه</option>
-          <option value="Tehranpars">تهران‌پارس</option>
-          <option value="Sadeghieh">صادقیه</option>
-          <option value="Shahran">شهران</option>
-          <option value="Zibadasht">زیبادشت</option>
-          <option value="Velenjak">ولنجک</option>
-          <option value="Daryan No">دریان‌نو</option>
-          <option value="Aqdasieh">اقدسیه</option>
-          <option value="Keshavarz Boulevard">بلوار کشاورز</option>
-          <option value="Javadiyeh">جوادیه</option>
-          <option value="Qarchak">قرچک</option>
-          <option value="Marzdaran">مرزداران</option>
-          <option value="Azadi">آزادی</option>
-          <option value="Rey">ری</option>
-          <option value="Pirouzi">پیروزی</option>
-          <option value="Yaftabad">یافت‌آباد</option>
-          <option value="Beryanak">بریانک</option>
-          <option value="Mahallati">محلاتی</option>
-          <option value="Karimkhan">کریم‌خان</option>
-          <option value="Darband">دربند</option>
-          <option value="Darakeh">دَرَکه</option>
-        </select>
-      </div>
-
       <button type="button" id="predict-btn" class="btn btn-primary w-100">پیش‌بینی کن</button>
     </form>
 
@@ -124,18 +55,10 @@
   document.getElementById('predict-btn').addEventListener('click', async () => {
       const area = parseFloat(document.getElementById('area').value);
       const rooms = parseInt(document.getElementById('rooms').value);
-      const parking = document.getElementById('parking').checked;
-      const warehouse = document.getElementById('warehouse').checked;
-      const elevator = document.getElementById('elevator').checked;
-      const address = document.getElementById('address').value;
 
       const data = {
           "Area": area,
-          "Rooms": rooms,
-          "Parking": parking,
-          "Warehouse": warehouse,
-          "Elevator": elevator,
-          "Address": address
+          "Rooms": rooms
       };
 
       try {
